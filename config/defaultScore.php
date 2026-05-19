@@ -32,12 +32,14 @@ return [
     "specialBets" => [
         "offensiveTeam"          => 10,
         "winner" => [
+            "last16"             => 0,
             "quarterFinal"       => 4,
             "semiFinal"          => 6,
             "final"              => 20,
             "winning"            => 30,
         ],
         "runnerUp" => [
+            "last16"             => 0,
             "quarterFinal"       => 4,
             "semiFinal"          => 6,
             "final"              => 20,
