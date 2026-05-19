@@ -32,6 +32,10 @@ function RoadToFinalDesktopTable({disabled, ...formProps}: SpecialQuestionConfig
 	const onChangeQuarterFinal = (event: any, value: boolean) => {
 		setValue('specialQuestionOptions.roadToFinal.quarterFinal', value as never);
 	}
+	const isOnLast16 = watch('specialQuestionOptions.roadToFinal.last16');
+	const onChangeLast16 = (event: any, value: boolean) => {
+		setValue('specialQuestionOptions.roadToFinal.last16', value as never);
+	}
 
 	const models: TeamAchivementsConfigModel[] = [
 		{
@@ -117,6 +121,25 @@ function RoadToFinalDesktopTable({disabled, ...formProps}: SpecialQuestionConfig
 				<TeamAchivementStageConfig
 					stageName={CompetitionStageName.QuarterFinal}
 					disabled={!isOnQuarterFinal || disabled}
+					questionType={model.question}
+					{...formProps}
+				/>
+			),
+		},
+		{
+			id: 'last16',
+			header: (
+				<HeaderWithSwitch
+					label={competitionStageToString.last16}
+					checked={isOnLast16}
+					onChange={onChangeLast16}
+					disabled={disabled}
+				/>
+			),
+			getter: (model: TeamAchivementsConfigModel) => (
+				<TeamAchivementStageConfig
+					stageName={CompetitionStageName.Last16}
+					disabled={!isOnLast16 || disabled}
 					questionType={model.question}
 					{...formProps}
 				/>

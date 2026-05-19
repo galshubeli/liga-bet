@@ -26,6 +26,7 @@ export function getInitialOptionsConfig(config: ScoresConfigFromatted){
 			roadToFinal: {
 				[KnockoutStage.SemiFinal]: questionsConfig.runnerUp.semiFinal > 0 || questionsConfig.winner.semiFinal > 0,
 				[KnockoutStage.QuarterFinal]: questionsConfig.runnerUp.quarterFinal > 0 || questionsConfig.winner.quarterFinal > 0,
+				[KnockoutStage.Last16]: questionsConfig.runnerUp.last16 > 0 || questionsConfig.winner.last16 > 0,
 			}
 		},
 		gameBetOptions: {

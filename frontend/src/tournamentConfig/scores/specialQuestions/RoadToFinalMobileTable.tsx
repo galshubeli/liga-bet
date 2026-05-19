@@ -25,6 +25,10 @@ function RoadToFinalMobileTable({disabled, ...formProps}: SpecialQuestionConfigP
 	const onChangeQuarterFinal = (event: any, value: boolean) => {
 		setValue('specialQuestionOptions.roadToFinal.quarterFinal', value as never);
 	}
+	const isOnLast16 = watch('specialQuestionOptions.roadToFinal.last16');
+	const onChangeLast16 = (event: any, value: boolean) => {
+		setValue('specialQuestionOptions.roadToFinal.last16', value as never);
+	}
 
 
 	const models: CompetitionStageConfigModel[] = [
@@ -43,6 +47,10 @@ function RoadToFinalMobileTable({disabled, ...formProps}: SpecialQuestionConfigP
 		{
 			id: CompetitionStageName.QuarterFinal,
 			stageName: CompetitionStageName.QuarterFinal,
+		},
+		{
+			id: CompetitionStageName.Last16,
+			stageName: CompetitionStageName.Last16,
 		},
 	];
 
@@ -73,6 +81,16 @@ function RoadToFinalMobileTable({disabled, ...formProps}: SpecialQuestionConfigP
 						/>
 					)
 				}
+				if (model.stageName === CompetitionStageName.Last16) {
+					return (
+						<HeaderWithSwitch
+							label={label}
+							checked={isOnLast16}
+							onChange={onChangeLast16}
+							disabled={disabled}
+						/>
+					)
+				}
 				return label
 			}
 		},
@@ -87,6 +105,7 @@ function RoadToFinalMobileTable({disabled, ...formProps}: SpecialQuestionConfigP
 						disabled: (
 							(model.stageName === CompetitionStageName.SemiFinal && !isOnSemiFinal)
 							|| (model.stageName === CompetitionStageName.QuarterFinal && !isOnQuarterFinal)
+							|| (model.stageName === CompetitionStageName.Last16 && !isOnLast16)
 							|| disabled
 						),
 					}}
@@ -107,6 +126,7 @@ function RoadToFinalMobileTable({disabled, ...formProps}: SpecialQuestionConfigP
 								disabled: (
 									(model.stageName === CompetitionStageName.SemiFinal && !isOnSemiFinal)
 									|| (model.stageName === CompetitionStageName.QuarterFinal && !isOnQuarterFinal)
+									|| (model.stageName === CompetitionStageName.Last16 && !isOnLast16)
 									|| disabled
 								),
 							}}
