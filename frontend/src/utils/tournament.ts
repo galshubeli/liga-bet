@@ -20,9 +20,11 @@ export const gameStageToString = {
     [KnockoutStage.SemiFinal]: 'חצי גמר',
     [KnockoutStage.QuarterFinal]: 'רבע גמר',
     [KnockoutStage.Last16]: 'שמינית גמר',
+    [KnockoutStage.Last32]: '1/16 גמר',
 }
 
 export const koStageToNextCompetitionStage = {
+    [KnockoutStage.Last32]: CompetitionStageName.Last16,
     [KnockoutStage.Last16]: CompetitionStageName.QuarterFinal,
     [KnockoutStage.QuarterFinal]: CompetitionStageName.SemiFinal,
     [KnockoutStage.SemiFinal]: CompetitionStageName.Final,
@@ -134,12 +136,14 @@ export function generateDefaultScoresConfig(): ScoresConfigFromatted {
 		specialBets: {
 			offensiveTeam: 10,
 			winner: {
+				last16: 0,
 				quarterFinal: 4,
 				semiFinal: 6,
 				final: 20,
 				winning: 30,
 			},
 			runnerUp: {
+				last16: 0,
 				quarterFinal: 4,
 				semiFinal: 6,
 				final: 20,

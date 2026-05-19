@@ -7,6 +7,7 @@ export const stageNameToHeb = {
     [KnockoutStage.SemiFinal]: 'חצי גמר',
     [KnockoutStage.QuarterFinal]: 'רבע גמר',
     [KnockoutStage.Last16]: 'שמינית גמר',
+    [KnockoutStage.Last32]: '1/16 גמר',
     [GameType.GroupStage]: 'שלב הבתים',
 }
 
@@ -19,6 +20,7 @@ export const competitionStageToString = {
 	[CompetitionStageName.Final]: 'הגעה לגמר',
 	[CompetitionStageName.SemiFinal]: 'הגעה לחצי גמר',
 	[CompetitionStageName.QuarterFinal]: 'הגעה לרבע גמר',
+	[CompetitionStageName.Last16]: 'הגעה לשמינית הגמר',
 }
 
 export function getHebCompetitionStageName(stage: CompetitionStageName){
